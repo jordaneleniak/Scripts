@@ -98,6 +98,8 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 dnf check-update
 sudo dnf install code
 
+# Programs below this point have wizards to go through.
+
 # Install Autodesk Eagle PCB Design
 sudo wget -c https://trial2.autodesk.com/NET17SWDLD/2017/EGLPRM/ESD/Autodesk_EAGLE_9.6.2_English_Linux_64bit.tar.gz -O - | tar -xz
 cd eagle*
@@ -105,3 +107,8 @@ cd eagle*
 sudo rm Autodesk*.tar.gz
 
 
+# Message to stat what other programs must be installed. As well as a reminder to set up Git.
+echo Programs and apps to manually or add to script install:
+echo MatLab, SMath, Xilinx ISE, PSpice
+echo
+echo Also, Git still needs to be setup.
