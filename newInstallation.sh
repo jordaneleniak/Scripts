@@ -17,6 +17,16 @@ sudo dnf install snapd
 sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install onlyoffice-desktopeditors
 
+# Install Foxit PDF Reader (Adobe Acrobate Pro alternative)
+cd ~/Downloads
+wget http://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.4.0911.x64.run.tar.gz
+tar xzvf FoxitReader*.tar.gz
+sudo chmod a+x FoxitReader*.run
+sudo ./FoxitReader*.run
+rm FoxitReader*.tar.gz
+rm FoxitReader*.run
+cd ..
+
 # Install Wine
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/35/winehq.repo
@@ -81,16 +91,6 @@ sudo dnf install java-latest-openjdk-devel.x86_64
 
 
 # Install programs for university
-
-# Install Foxit PDF Reader (Adobe Acrobate Pro alternative)
-cd ~/Downloads
-wget http://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.4.0911.x64.run.tar.gz
-tar xzvf FoxitReader*.tar.gz
-sudo chmod a+x FoxitReader*.run
-sudo ./FoxitReader*.run
-rm FoxitReader*.tar.gz
-rm FoxitReader*.run
-cd ..
 
 # Install VS Code
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
