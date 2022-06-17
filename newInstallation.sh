@@ -103,8 +103,17 @@ sudo dnf install code
 # Install Autodesk Eagle PCB Design
 sudo wget -c https://trial2.autodesk.com/NET17SWDLD/2017/EGLPRM/ESD/Autodesk_EAGLE_9.6.2_English_Linux_64bit.tar.gz -O - | tar -xz
 cd eagle*
-
+# Nouveau (Open Source driver for nVidia cards) may cause sporadic crashes during the login procedure.
+# Enable software rendering in libGL by setting LIBGL_ALWAYS_SOFTWARE to 1.
+export LIBGL_ALWAYS_SOFTWARE=1
+# Create if statement to verify that ./eagle runs properly. Run it if it functions correctly.
+# If output of failed install contains "Could not initialize GLX" and Bash echo $? == 134 then
+# run QT_XCB_GL_INTEGRATION=xcb_egl ./eagle
+./eagle || QT_XCB_GL_INTEGRATION=xcb_egl ./eagle
+cd ..
 sudo rm Autodesk*.tar.gz
+# Create directory for Autodesk Eagle
+sudo mv eagle* /etc
 
 
 # Message to stat what other programs must be installed. As well as a reminder to set up Git.
